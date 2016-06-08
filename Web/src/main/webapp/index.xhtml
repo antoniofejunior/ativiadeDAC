@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <p:dataTable var="pessoa" value="${controler.todas()}">
+            <p:column headerText="ID">
+                <h:outputText value="#{pessoa.id}" />
+            </p:column>
+
+            <p:column headerText="Nome">
+                <h:outputText value="#{pessoa.nome}" />
+            </p:column>
+        </p:dataTable>
+        <!--<p:commandButton value="Nova Pessoa" type="button" onclick="PF('d3g1').show();"/>-->
+        <!--<p:dialog header="Nova Pessoa" widgetVar="d3p1" modal="true" minHeight="80">-->
+           <h:form>
+            <p:inputText value="${controler.p.nome}" required="true" 
+                         placeholder="Informe o nome da pessoa:"/>
+            <p:commandButton value="salvar" action="${controler.salvar()}"/>
+            <!--<p:commandButton value="Cancelar" action="null"/>-->
+            </h:form>
+        <!--</p:dialog>-->
+        
+         <h1>LIST OF PERSONS</h1>
+         <h:dataTable value="#{controler.todas()}" var="person">
+            <h:column>
+                <h:outputText value="#{person}" />
+                <hr></hr>
+            </h:column>
+        </h:dataTable>
+
+    </h:body>
+</html>
+
